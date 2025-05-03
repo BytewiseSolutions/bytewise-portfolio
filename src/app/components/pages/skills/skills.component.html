@@ -1,0 +1,19 @@
+<div class="skills-wrapper">
+
+    <div class="category-filter">
+        <button *ngFor="let category of categories" (click)="selectedCategory = category"
+            [class.active]="selectedCategory === category">
+            {{ category }}
+        </button>
+    </div>
+
+    <div class="category" *ngFor="let group of filteredGroups">
+        <h2 class="category-title">{{ group.category }}</h2>
+        <div class="skills-container">
+            <div class="skill-card" *ngFor="let skill of group.skills">
+                <i class="{{ skill.iconClass }} icon"></i>
+                <div class="name">{{ skill.name }}</div>
+            </div>
+        </div>
+    </div>
+</div>

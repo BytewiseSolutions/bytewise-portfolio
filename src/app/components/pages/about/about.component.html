@@ -1,0 +1,19 @@
+<div class="about-wrapper">
+    <div class="profile-section">
+        <img src="log.png" alt="Profile Photo" class="profile-photo" />
+        <div class="profile-info">
+            <h1>{{ name }}</h1>
+            <h2>{{ title }}</h2>
+        </div>
+    </div>
+
+    <div class="bio-section">
+        <h3>About Me</h3>
+        <p>{{ bio }}</p>
+
+        <h3>Key Skills</h3>
+        <ul>
+            <li *ngFor="let skill of skillsSummary">✔️ {{ skill }}</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+.footer {
+    background: linear-gradient(135deg, #212529, #343a40);
+    color: #f8f9fa;
+    text-align: center;
+    padding: 2rem 1rem 4rem;
+    /* extra bottom padding for Back to Top */
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    border-top: 3px solid #007bff;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.social-links {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.social-links a {
+    color: #f8f9fa;
+    font-size: 1.6rem;
+    background-color: #3b3f45;
+    padding: 12px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.social-links a:hover {
+    color: #fff;
+    background-color: #007bff;
+    transform: scale(1.25) rotate(5deg);
+}
+
+.back-to-top {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 14px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #0056b3;
+    transform: scale(1.15);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
