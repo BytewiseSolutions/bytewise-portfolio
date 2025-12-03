@@ -14,19 +14,25 @@ export class ProjectsComponent {
       title: 'Agricultural Info Web App',
       description: 'A platform providing real-time agricultural updates for Lesotho farmers.',
       image: 'agric.PNG',
-      link: 'https://example.com/agriculture'
+      link: 'https://github.com/BytewiseSolutions/ls-agri-info'
+    },
+    {
+      title: 'Fans Dor',
+      description: 'A very minimal website with focus being on beautiful branding as we aim for the global market.',
+      image: 'fansdor.PNG',
+      link: 'https://github.com/BytewiseSolutions/fans-dor'
     },
     {
       title: 'Primary School',
       description: 'A full web-based school management system.',
       image: 'primary.PNG',
-      link: 'https://example.com/movies'
+      link: 'https://github.com/BytewiseSolutions/primary-school'
     },
     {
       title: 'Internship Management System',
       description: 'A system for managing stock levels in a small retail store.',
-      image: 'internship.PNG',
-      link: 'https://example.com/inventory'
+      image: 'internship_img.PNG',
+      link: 'https://github.com/BytewiseSolutions/internship-management-system'
     }
   ];
 }

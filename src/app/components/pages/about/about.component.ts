@@ -22,7 +22,7 @@ export class AboutComponent {
     'Full-stack development',
     'Agile methodology',
     'Database design',
-    'Cloud technologies (Firebase)',
+    'Cloud technologies (Firebase & AWS Amazon)',
     'UI/UX principles'
   ];
 }
