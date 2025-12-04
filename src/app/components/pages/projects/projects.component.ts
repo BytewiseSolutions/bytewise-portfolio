@@ -20,7 +20,7 @@ export class ProjectsComponent {
       title: 'Fans Dor',
       description: 'A very minimal website with focus being on beautiful branding as we aim for the global market.',
       image: 'fansdor.PNG',
-      link: 'https://github.com/BytewiseSolutions/fans-dor'
+      link: 'https://github.com/BytewiseSolutions/voting-system'
     },
     {
       title: 'Primary School',
@@ -32,7 +32,7 @@ export class ProjectsComponent {
       title: 'Internship Management System',
       description: 'A system for managing stock levels in a small retail store.',
       image: 'internship_img.PNG',
-      link: 'https://github.com/BytewiseSolutions/internship-management-system'
+      link: 'https://github.com/BytewiseSolutions/internship-system'
     }
   ];
 }
