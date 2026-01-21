@@ -85,10 +85,18 @@
             </div>
             <div class="newsletter">
                 <p>Stay updated with my latest projects</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Your email">
-                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </div>
+                <form class="newsletter-form" (submit)="subscribeFooterNewsletter($event)">
+                    <input 
+                        type="email" 
+                        [(ngModel)]="footerEmail" 
+                        name="footerEmail"
+                        placeholder="Your email"
+                        required
+                    >
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

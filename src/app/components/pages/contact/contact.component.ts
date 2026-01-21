@@ -32,13 +32,6 @@ export class ContactComponent {
     });
   }
 
-  
-    
-
-   
-    
-  
-
   onSubmit() {
     this.submitted = true;
     this.errorMessage = '';

@@ -118,8 +118,19 @@
     transition: background 0.3s ease;
 }
 
-.newsletter-form button:hover {
+.newsletter-form button:hover:not(:disabled) {
     background: #0056b3;
+}
+
+.newsletter-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.footer-newsletter-message {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #4caf50;
 }
 
 .footer-bottom {

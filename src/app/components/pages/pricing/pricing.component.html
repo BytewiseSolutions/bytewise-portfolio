@@ -28,9 +28,14 @@
             </li>
           </ul>
           
-          <button class="cta-button" [style.background-color]="plan.color">
+          <a 
+            [href]="'https://wa.me/26659181664?text=Hi, I am interested in the ' + plan.name + ' package (' + plan.price + '). Can you provide more details?'" 
+            target="_blank" 
+            class="cta-button" 
+            [style.background-color]="plan.color"
+          >
             Get Started
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -58,9 +63,14 @@
             </li>
           </ul>
           
-          <button class="cta-button" [style.background-color]="app.color">
+          <a 
+            [href]="'https://wa.me/26659181664?text=Hi, I am interested in the ' + app.name + ' (' + app.price + '). Can you provide more details?'" 
+            target="_blank" 
+            class="cta-button" 
+            [style.background-color]="app.color"
+          >
             Get Quote
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -69,9 +79,9 @@
   <div class="contact-cta">
     <h2>Need a Custom Solution?</h2>
     <p>Every project is unique. Let's discuss your specific requirements and create a tailored solution.</p>
-    <button class="contact-button" routerLink="/contact">
+    <a href="https://wa.me/26659181664?text=Hi, I need a custom solution for my project. Can we discuss?" target="_blank" class="contact-button">
       <i class="fas fa-envelope"></i>
       Get Custom Quote
-    </button>
+    </a>
   </div>
 </div>

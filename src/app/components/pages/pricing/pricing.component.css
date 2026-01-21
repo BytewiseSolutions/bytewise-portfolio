@@ -234,6 +234,11 @@
   letter-spacing: 0.02em;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 .cta-button::before {
   content: '';
@@ -308,6 +313,7 @@
   position: relative;
   z-index: 1;
   letter-spacing: 0.02em;
+  text-decoration: none;
 }
 .contact-button:hover {
   transform: translateY(-2px);
