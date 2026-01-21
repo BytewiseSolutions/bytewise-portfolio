@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';  // <-- Import RouterModule
+import { RouterModule, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  imports: [RouterModule]  
+  imports: [RouterModule, CommonModule, FormsModule]  
 })
 export class NavbarComponent {
   isMenuOpen: boolean = false;
+  showSearch: boolean = false;
+  searchQuery: string = '';
+
+  constructor(private router: Router) {}
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -19,6 +25,22 @@ export class NavbarComponent {
       navbarLinks.classList.add('active');
     } else {
       navbarLinks.classList.remove('active');
+    }
+  }
+  
+  toggleSearch() {
+    this.showSearch = !this.showSearch;
+    if (!this.showSearch) {
+      this.searchQuery = '';
+    }
+  }
+  
+  search() {
+    if (this.searchQuery.trim()) {
+      // Navigate to blog with search query
+      this.router.navigate(['/blog'], { queryParams: { q: this.searchQuery } });
+      this.showSearch = false;
+      this.searchQuery = '';
     }
   }
 }

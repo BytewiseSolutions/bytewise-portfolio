@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NewsletterComponent } from '../newsletter/newsletter.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [RouterModule, CommonModule, HttpClientModule],
+  imports: [RouterModule, CommonModule, HttpClientModule, NewsletterComponent],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })

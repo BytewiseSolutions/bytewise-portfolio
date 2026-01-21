@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -8,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css']
 })
-export class BlogComponent {
+export class BlogComponent implements OnInit {
   articles = [
     {
       id: 1,
@@ -43,6 +44,35 @@ export class BlogComponent {
   ];
 
   selectedArticle: any = null;
+  filteredArticles: any[] = [];
+  searchQuery: string = '';
+  
+  constructor(private route: ActivatedRoute) {}
+  
+  ngOnInit() {
+    this.filteredArticles = this.articles;
+    
+    this.route.queryParams.subscribe(params => {
+      if (params['q']) {
+        this.searchQuery = params['q'];
+        this.filterArticles();
+      }
+    });
+  }
+  
+  filterArticles() {
+    if (!this.searchQuery) {
+      this.filteredArticles = this.articles;
+      return;
+    }
+    
+    const query = this.searchQuery.toLowerCase();
+    this.filteredArticles = this.articles.filter(article =>
+      article.title.toLowerCase().includes(query) ||
+      article.excerpt.toLowerCase().includes(query) ||
+      article.tags.some((tag: string) => tag.toLowerCase().includes(query))
+    );
+  }
 
   viewArticle(article: any) {
     this.selectedArticle = article;

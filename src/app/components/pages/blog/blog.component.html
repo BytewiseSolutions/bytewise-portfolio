@@ -3,8 +3,12 @@
     <h1>Blog & Articles</h1>
     <p class="subtitle">Insights, tutorials, and thoughts on technology</p>
     
+    <div class="search-info" *ngIf="searchQuery">
+      <p>Search results for: <strong>"{{ searchQuery }}"</strong> ({{ filteredArticles.length }} found)</p>
+    </div>
+    
     <div class="articles-grid">
-      <article class="article-card" *ngFor="let article of articles" (click)="viewArticle(article)">
+      <article class="article-card" *ngFor="let article of filteredArticles" (click)="viewArticle(article)">
         <div class="article-image">
           <img [src]="article.image" [alt]="article.title">
         </div>

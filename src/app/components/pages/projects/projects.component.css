@@ -57,8 +57,8 @@
 }
 
 .project-card a {
-    display: block;
-    margin: 0 16px 20px 16px;
+    display: inline-block;
+    margin: 0 8px 20px 16px;
     color: #0d6efd;
     font-weight: 600;
     text-decoration: none;
@@ -68,4 +68,104 @@
 .project-card a:hover {
     color: #084298;
     text-decoration: underline;
+}
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+    margin: 0 16px 20px 16px;
+}
+
+.case-study-btn {
+    padding: 8px 16px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.case-study-btn:hover {
+    background: #5a6268;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.modal-content h2 {
+    color: #0a58ca;
+    margin-bottom: 30px;
+}
+
+.case-study-section {
+    margin-bottom: 25px;
+}
+
+.case-study-section h3 {
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.case-study-section h3 i {
+    color: #0a58ca;
+}
+
+.case-study-section p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag {
+    background: #e7f1ff;
+    color: #0a58ca;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
 }
