@@ -115,6 +115,7 @@ h1 {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 40px 20px;
     }
 
     .content {
@@ -123,6 +124,19 @@ h1 {
 
     .buttons {
         justify-content: center;
+    }
+
+    .projects-section, .skills-section, .contact-section {
+        padding: 40px 20px;
+    }
+
+    .contact-cards {
+        gap: 20px;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 300px;
     }
 }
 
@@ -174,7 +188,7 @@ h1 {
 
 .project-card p {
     font-size: 14px;
-    color: #555;
+    color: #212529;
     margin: 10px 0 15px;
 }
 
@@ -235,7 +249,7 @@ h1 {
 
 .skill-card p {
     font-size: 14px;
-    color: #555;
+    color: #212529;
 }
 
 
@@ -288,4 +302,22 @@ h1 {
     font-size: 16px;
     color: #333;
     margin: 8px 0;
+}
+.image-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.profile-photo .image-loading {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 6px solid #007bff;
 }

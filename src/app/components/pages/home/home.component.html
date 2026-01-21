@@ -12,14 +12,18 @@
         </div>
 
         <div class="buttons">
-            <a class="button-primary" href="/lebo.pdf" download><i class="fas fa-file-alt"></i>Download Resume</a>
-            <a class="button-secondary" href="https://github.com/BytewiseSolutions" target="_blank"><i
+            <a class="button-primary" href="/lebo.pdf" download aria-label="Download Lebohang Monamane's resume"><i class="fas fa-file-alt"></i>Download Resume</a>
+            <a class="button-secondary" href="https://github.com/BytewiseSolutions" target="_blank" aria-label="Visit ByteWise Solutions GitHub profile"><i
                     class="fab fa-github"></i>Visit GitHub</a>
         </div>
     </div>
 
     <div class="profile-photo">
-        <img src="/lebohang.jpg" alt="Lebohang Monamane" />
+        <div *ngIf="imageLoading.profile" class="image-loading">Loading...</div>
+        <img src="/lebohang.jpg" alt="Lebohang Monamane" 
+             (load)="onImageLoad('profile')" 
+             (error)="onImageError($event)"
+             [style.display]="imageLoading.profile ? 'none' : 'block'" />
     </div>
 </div>
 
@@ -27,29 +31,41 @@
     <h2>Featured Projects</h2>
     <div class="projects-grid">
         <div class="project-card">
-            <img src="agric.PNG" alt="Final Project" />
+            <div *ngIf="imageLoading.agric" class="image-loading">Loading...</div>
+            <img src="agric.PNG" alt="Final Project" 
+                 (load)="onImageLoad('agric')" 
+                 (error)="onImageError($event)"
+                 [style.display]="imageLoading.agric ? 'none' : 'block'" />
             <h3>Agricultural Information</h3>
             <p>It provides farmers with real-time weather updates, a database of
                 pests and diseases, and a library of farming resources</p>
-            <a href="https://github.com/BytewiseSolutions/ls-agri-info" target="_blank">View on GitHub</a>
+            <a href="https://github.com/BytewiseSolutions/ls-agri-info" target="_blank" aria-label="View Agricultural Information project on GitHub">View on GitHub</a>
         </div>
         <div class="project-card">
-            <img src="intern.PNG" alt="Project 2" />
+            <div *ngIf="imageLoading.intern" class="image-loading">Loading...</div>
+            <img src="intern.PNG" alt="Project 2" 
+                 (load)="onImageLoad('intern')" 
+                 (error)="onImageError($event)"
+                 [style.display]="imageLoading.intern ? 'none' : 'block'" />
             <h3>Internship System</h3>
             <p>
-                It Connecting Students, Companies, and Universities in Lesotho
+                Connecting Students, Companies, and Universities in Lesotho
             </p>
-            <a href="https://github.com/BytewiseSolutions/internship-system" target="_blank">View on
+            <a href="https://github.com/BytewiseSolutions/internship-system" target="_blank" aria-label="View Internship System project on GitHub">View on
                 GitHub</a>
         </div>
         <div class="project-card">
-            <img src="fansdor.PNG" alt="Project 2" />
+            <div *ngIf="imageLoading.fansdor" class="image-loading">Loading...</div>
+            <img src="fansdor.PNG" alt="Project 2" 
+                 (load)="onImageLoad('fansdor')" 
+                 (error)="onImageError($event)"
+                 [style.display]="imageLoading.fansdor ? 'none' : 'block'" />
             <h3>Fans Dor</h3>
             <p>
                 A very minimal website with focus being on
                 beautiful branding as we aim for the global market.
             </p>
-            <a href="https://github.com/BytewiseSolutions/voting-system" target="_blank">View on GitHub</a>
+            <a href="https://github.com/BytewiseSolutions/voting-system" target="_blank" aria-label="View Fans Dor project on GitHub">View on GitHub</a>
         </div>
     </div>
 </div>
@@ -79,20 +95,19 @@
     <h2>Contact Me</h2>
     <div class="contact-cards">
 
-        <a class="contact-card" href="tel:+26663274567">
+        <a class="contact-card" href="tel:+26659181664">
             <h3><i class="fas fa-phone-alt"></i> Phone</h3>
-            <p>Call: +266 6327 4567</p>
+            <p>Call: +266 5918 1664</p>
         </a>
 
         <a class="contact-card" href="https://wa.me/26659181664" target="_blank" rel="noopener">
             <h3><i class="fab fa-whatsapp"></i> WhatsApp</h3>
-            <p>Chat: +266 59191664</p>
+            <p>Chat: +266 5918 1664</p>
         </a>
 
         <div class="contact-card">
             <h3><i class="fas fa-envelope"></i> Email</h3>
-            <p><a href="lebohangmonamane3@gmail.com">lebohangmonamane3&#64;gmail.com</a></p>
-            <p><a href="monamane:lebohang45@gmail.com">monamane.lebohang45&#64;gmail.com</a></p>
+            <p><a href="mailto:monamane.lebohang45@gmail.com">monamane.lebohang45&#64;gmail.com</a></p>
         </div>
 
         <div class="contact-card">

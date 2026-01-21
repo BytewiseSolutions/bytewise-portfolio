@@ -1,25 +1,52 @@
 <nav class="navbar">
     <h1 class="logo">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Bytewise Solutions</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <img src="logo.png" alt="Bytewise Solutions">
+        </a>
     </h1>
     <ul class="navbar-links">
         <li class="navbar-link">
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
         </li>
         <li class="navbar-link">
-            <a routerLink="/projects" routerLinkActive="active">Projects</a>
+            <a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">Projects</a>
         </li>
         <li class="navbar-link">
-            <a routerLink="/skills" routerLinkActive="active">Skills</a>
+            <a routerLink="/skills" routerLinkActive="active" (click)="closeMenu()">Skills</a>
         </li>
         <li class="navbar-link">
-            <a routerLink="/about" routerLinkActive="active">About</a>
+            <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
         </li>
         <li class="navbar-link">
-            <a routerLink="/contact" routerLinkActive="active">Contact</a>
+            <a routerLink="/blog" routerLinkActive="active" (click)="closeMenu()">Blog</a>
+        </li>
+        <li class="navbar-link">
+            <a routerLink="/pricing" routerLinkActive="active" (click)="closeMenu()">Pricing</a>
+        </li>
+        <li class="navbar-link">
+            <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
         </li>
     </ul>
 
+    <div class="search-container">
+        <button class="connect-btn" (click)="openWhatsApp()">
+            <i class="fab fa-whatsapp"></i> Connect
+        </button>
+        <button class="search-btn" (click)="toggleSearch()">
+            <i class="fas fa-search"></i>
+        </button>
+        <div class="search-box" [class.active]="showSearch">
+            <input 
+                type="text" 
+                [(ngModel)]="searchQuery" 
+                placeholder="Search blog posts..."
+                (keyup.enter)="search()"
+            >
+            <button (click)="search()" class="search-submit">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
 
     <div class="menu-icon" (click)="toggleMenu()">
         <i class="fas fa-bars"></i>

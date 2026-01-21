@@ -1,0 +1,29 @@
+<div class="newsletter-section">
+  <div class="newsletter-content">
+    <i class="fas fa-envelope-open-text newsletter-icon"></i>
+    <h3>Subscribe to Our Newsletter</h3>
+    <p>Get the latest updates on web development, tech tips, and exclusive offers</p>
+    
+    <div class="newsletter-form" *ngIf="!subscribed">
+      <input 
+        type="email" 
+        [(ngModel)]="email" 
+        placeholder="Enter your email address"
+        class="email-input"
+        (keyup.enter)="subscribe()"
+        [disabled]="loading"
+      >
+      <button (click)="subscribe()" class="subscribe-btn" [disabled]="loading">
+        <i class="fas" [class.fa-paper-plane]="!loading" [class.fa-spinner]="loading" [class.fa-spin]="loading"></i> 
+        {{ loading ? 'Subscribing...' : 'Subscribe' }}
+      </button>
+    </div>
+    
+    <div class="success-message" *ngIf="subscribed">
+      <i class="fas fa-check-circle"></i>
+      <p>Thank you for subscribing! Check your email for confirmation.</p>
+    </div>
+    
+    <p class="error-message" *ngIf="error">{{ error }}</p>
+  </div>
+</div>

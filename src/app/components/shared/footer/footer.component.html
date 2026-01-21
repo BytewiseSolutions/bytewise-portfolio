@@ -1,24 +1,59 @@
 <footer class="footer">
+    <!-- Newsletter Section -->
+    <app-newsletter></app-newsletter>
+    
     <div class="footer-content">
         <div class="footer-section">
             <h3>Lebohang Monamane</h3>
             <p>Crafting innovative software solutions with passion and precision.</p>
             <div class="contact-info">
                 <p><i class="fas fa-envelope"></i> monamane.lebohang45&#64;gmail.com</p>
-                <p><i class="fas fa-phone"></i> +266 6327 4567</p>
+                <p><i class="fas fa-phone"></i> +266 5918 1664</p>
                 <p><i class="fas fa-map-marker-alt"></i> Maseru, Lesotho</p>
             </div>
         </div>
 
         <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-                <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-                <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
-                <li><a routerLink="/skills" routerLinkActive="active">Skills</a></li>
-                <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-            </ul>
+            <h3>Our Facebook</h3>
+            <div class="facebook-section">
+                <div class="facebook-card">
+                    <div class="facebook-info">
+                        <div class="logo-container">
+                            <img src="/logo.png" alt="ByteWise Solutions" class="facebook-logo">
+                            <div class="verified-badge">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="facebook-details">
+                            <h4>ByteWise Solutions</h4>
+                            <p class="followers" *ngIf="!isLoadingFollowers">
+                                <i class="fas fa-users"></i> {{followers | number}} followers
+                            </p>
+                            <p class="followers loading" *ngIf="isLoadingFollowers">
+                                <i class="fas fa-spinner fa-spin"></i> Loading...
+                            </p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="facebook-buttons">
+                        <button class="share-btn" (click)="sharePage()">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Share</span>
+                        </button>
+                        <button class="follow-btn" (click)="openFollowDialog()">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Follow Page</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="footer-section">
@@ -35,7 +70,7 @@
         <div class="footer-section">
             <h3>Connect With Me</h3>
             <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61566527098189" target="_blank" aria-label="Facebook">
+                <a href="https://www.facebook.com/profile.php?id=100094670365232" target="_blank" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/lebohang-monamane-707354298" target="_blank" aria-label="LinkedIn">
@@ -50,10 +85,18 @@
             </div>
             <div class="newsletter">
                 <p>Stay updated with my latest projects</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Your email">
-                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </div>
+                <form class="newsletter-form" (submit)="subscribeFooterNewsletter($event)">
+                    <input 
+                        type="email" 
+                        [(ngModel)]="footerEmail" 
+                        name="footerEmail"
+                        placeholder="Your email"
+                        required
+                    >
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -69,4 +112,29 @@
     <a href="#" class="back-to-top" aria-label="Back to Top">
         <i class="fas fa-chevron-up"></i>
     </a>
+
+    <!-- Follow Dialog -->
+    <div class="dialog-overlay" *ngIf="showFollowDialog" (click)="closeFollowDialog()">
+        <div class="follow-dialog" (click)="$event.stopPropagation()">
+            <div class="dialog-header">
+                <h3>Follow ByteWise Solutions</h3>
+                <button class="close-dialog" (click)="closeFollowDialog()">&times;</button>
+            </div>
+            <div class="dialog-body">
+                <p>Do You Want to Follow This Page?</p>
+                <div class="page-info">
+                    <img src="/logo.png" alt="ByteWise Solutions" class="dialog-logo">
+                    <div class="page-details">
+                        <h4>ByteWise Solutions</h4>
+                        <p class="description">Innovative software solutions and web development services</p>
+                    </div>
+                </div>
+                <p class="follow-text">Follow this Page to get updates in Feed.</p>
+            </div>
+            <div class="dialog-actions">
+                <button class="cancel-btn" (click)="closeFollowDialog()">Cancel</button>
+                <button class="follow-action-btn" (click)="followPage()">Follow</button>
+            </div>
+        </div>
+    </div>
 </footer>
