@@ -175,18 +175,39 @@
 }
 
 @media (max-width: 768px) {
+    .footer {
+        padding: 2rem 1rem 3rem;
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 1.5rem;
     }
     
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+        gap: 0.5rem;
     }
     
     .social-links {
         justify-content: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .newsletter-form input {
+        width: 100%;
+    }
+    
+    .back-to-top {
+        right: 15px;
+        bottom: 15px;
+        padding: 10px 12px;
     }
 }
 /* Facebook Section */
@@ -495,11 +516,20 @@
 
 @media (max-width: 768px) {
     .facebook-buttons {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 8px;
     }
     
     .follow-dialog {
         margin: 20px;
         width: calc(100% - 40px);
+    }
+    
+    .dialog-actions {
+        flex-direction: column;
+    }
+    
+    .cancel-btn, .follow-action-btn {
+        width: 100%;
     }
 }
