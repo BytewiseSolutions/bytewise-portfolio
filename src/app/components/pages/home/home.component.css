@@ -289,3 +289,21 @@ h1 {
     color: #333;
     margin: 8px 0;
 }
+.image-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.profile-photo .image-loading {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 6px solid #007bff;
+}

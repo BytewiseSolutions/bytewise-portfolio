@@ -19,7 +19,11 @@
     </div>
 
     <div class="profile-photo">
-        <img src="/lebohang.jpg" alt="Lebohang Monamane" />
+        <div *ngIf="imageLoading.profile" class="image-loading">Loading...</div>
+        <img src="/lebohang.jpg" alt="Lebohang Monamane" 
+             (load)="onImageLoad('profile')" 
+             (error)="onImageError($event)"
+             [style.display]="imageLoading.profile ? 'none' : 'block'" />
     </div>
 </div>
 
@@ -27,14 +31,22 @@
     <h2>Featured Projects</h2>
     <div class="projects-grid">
         <div class="project-card">
-            <img src="agric.PNG" alt="Final Project" />
+            <div *ngIf="imageLoading.agric" class="image-loading">Loading...</div>
+            <img src="agric.PNG" alt="Final Project" 
+                 (load)="onImageLoad('agric')" 
+                 (error)="onImageError($event)"
+                 [style.display]="imageLoading.agric ? 'none' : 'block'" />
             <h3>Agricultural Information</h3>
             <p>It provides farmers with real-time weather updates, a database of
                 pests and diseases, and a library of farming resources</p>
             <a href="https://github.com/BytewiseSolutions/ls-agri-info" target="_blank">View on GitHub</a>
         </div>
         <div class="project-card">
-            <img src="intern.PNG" alt="Project 2" />
+            <div *ngIf="imageLoading.intern" class="image-loading">Loading...</div>
+            <img src="intern.PNG" alt="Project 2" 
+                 (load)="onImageLoad('intern')" 
+                 (error)="onImageError($event)"
+                 [style.display]="imageLoading.intern ? 'none' : 'block'" />
             <h3>Internship System</h3>
             <p>
                 Connecting Students, Companies, and Universities in Lesotho
@@ -43,7 +55,11 @@
                 GitHub</a>
         </div>
         <div class="project-card">
-            <img src="fansdor.PNG" alt="Project 2" />
+            <div *ngIf="imageLoading.fansdor" class="image-loading">Loading...</div>
+            <img src="fansdor.PNG" alt="Project 2" 
+                 (load)="onImageLoad('fansdor')" 
+                 (error)="onImageError($event)"
+                 [style.display]="imageLoading.fansdor ? 'none' : 'block'" />
             <h3>Fans Dor</h3>
             <p>
                 A very minimal website with focus being on
