@@ -1,0 +1,31 @@
+<div class="whatsapp-chat-widget" [class.open]="isOpen">
+  <div class="chat-button" (click)="toggleChat()">
+    <i class="fab fa-whatsapp"></i>
+    <span class="notification-badge" *ngIf="!isOpen">1</span>
+  </div>
+  
+  <div class="chat-popup" *ngIf="isOpen">
+    <div class="chat-header">
+      <img src="/leb.png" alt="Lebohang" class="avatar">
+      <div class="info">
+        <h4>Lebohang Monamane</h4>
+        <p>Typically replies instantly</p>
+      </div>
+      <button class="close-btn" (click)="toggleChat()">×</button>
+    </div>
+    
+    <div class="chat-body">
+      <div class="message">
+        <p>Hi there! 👋</p>
+        <p>How can I help you today?</p>
+      </div>
+    </div>
+    
+    <div class="chat-footer">
+      <button class="whatsapp-btn" (click)="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+        Start Chat on WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
