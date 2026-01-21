@@ -27,6 +27,12 @@ export class NavbarComponent {
       navbarLinks.classList.remove('active');
     }
   }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+    const navbarLinks = document.querySelector('.navbar-links') as HTMLElement;
+    navbarLinks.classList.remove('active');
+  }
   
   toggleSearch() {
     this.showSearch = !this.showSearch;
@@ -42,5 +48,10 @@ export class NavbarComponent {
       this.showSearch = false;
       this.searchQuery = '';
     }
+  }
+
+  openWhatsApp() {
+    const message = "Hi! I'd like to connect with you.";
+    window.open(`https://wa.me/26659181664?text=${encodeURIComponent(message)}`, '_blank');
   }
 }
