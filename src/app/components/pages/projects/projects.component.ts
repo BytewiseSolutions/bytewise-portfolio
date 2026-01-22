@@ -38,7 +38,7 @@ export class ProjectsComponent {
       title: 'Total Free Lotto',
       description: 'TotalFreeLotto is a first-of-its-kind, web-based lottery platform where anyone can play completely free and still stand a chance to win real money',
       image: 'totalfree.png',
-      link: 'https://github.com/BytewiseSolutions/primary-school',
+      link: 'https://github.com/BytewiseSolutions/lottery-system',
       caseStudy: {
         challenge: 'School needed to digitize student records, attendance, and grade management.',
         solution: 'Developed comprehensive school management system with role-based access control.',
