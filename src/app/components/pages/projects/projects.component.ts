@@ -25,7 +25,7 @@ export class ProjectsComponent {
     {
       title: 'Fans Dor',
       description: 'A very minimal website with focus being on beautiful branding as we aim for the global market.',
-      image: 'fansdor.PNG',
+      image: 'fansdor.png',
       link: 'https://github.com/BytewiseSolutions/voting-system',
       caseStudy: {
         challenge: 'Client needed a modern, minimalist brand presence to enter global markets.',
@@ -35,15 +35,15 @@ export class ProjectsComponent {
       }
     },
     {
-      title: 'Primary School',
-      description: 'A full web-based school management system.',
-      image: 'primary.PNG',
+      title: 'Total Free Lotto',
+      description: 'TotalFreeLotto is a first-of-its-kind, web-based lottery platform where anyone can play completely free and still stand a chance to win real money',
+      image: 'totalfree.png',
       link: 'https://github.com/BytewiseSolutions/primary-school',
       caseStudy: {
         challenge: 'School needed to digitize student records, attendance, and grade management.',
         solution: 'Developed comprehensive school management system with role-based access control.',
         results: '300+ students managed, 70% reduction in administrative time',
-        technologies: ['Angular', 'PHP', 'MySQL', 'Bootstrap']
+        technologies: ['Angular', 'PHP', 'MySQL']
       }
     },
     {
