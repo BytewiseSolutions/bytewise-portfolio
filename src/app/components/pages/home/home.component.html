@@ -41,7 +41,7 @@
         </div>
         <div class="project-card">
             <div *ngIf="imageLoading.intern" class="image-loading">Loading...</div>
-            <img src="intern.PNG" alt="Project 2" (load)="onImageLoad('intern')" (error)="onImageError($event)"
+            <img src="intern.png" alt="Project 2" (load)="onImageLoad('intern')" (error)="onImageError($event)"
                 [style.display]="imageLoading.intern ? 'none' : 'block'" />
             <h3>Internship System</h3>
             <p>

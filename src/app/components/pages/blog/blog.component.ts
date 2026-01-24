@@ -18,7 +18,7 @@ export class BlogComponent implements OnInit {
       content: 'Angular is a powerful framework for building dynamic web applications...',
       author: 'Lebohang Monamane',
       date: new Date().toISOString().split('T')[0],
-      image: '/agric.PNG',
+      image: '/agric.png',
       tags: ['Angular', 'Web Development', 'TypeScript']
     }
   ];

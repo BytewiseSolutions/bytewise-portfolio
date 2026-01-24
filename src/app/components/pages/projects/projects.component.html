@@ -6,15 +6,64 @@
       <div class="divider"></div>
     </div>
     
-    <div class="projects-grid">
-      <div class="project-card" *ngFor="let project of projects; let i = index" 
+    <div class="filters-section">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input 
+          type="text" 
+          [(ngModel)]="searchQuery" 
+          (input)="filterProjects()" 
+          placeholder="Search projects or technologies..."
+        />
+      </div>
+      
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label><i class="fas fa-folder"></i> Category:</label>
+          <select [(ngModel)]="selectedCategory" (change)="filterProjects()">
+            <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label><i class="fas fa-code"></i> Technology:</label>
+          <select [(ngModel)]="selectedTech" (change)="filterProjects()">
+            <option *ngFor="let tech of technologies" [value]="tech">{{ tech }}</option>
+          </select>
+        </div>
+        
+        <button class="reset-btn" (click)="resetFilters()" *ngIf="searchQuery || selectedCategory !== 'All' || selectedTech !== 'All'">
+          <i class="fas fa-redo"></i> Reset
+        </button>
+      </div>
+      
+      <div class="results-count">
+        <span>{{ filteredProjects.length }} project{{ filteredProjects.length !== 1 ? 's' : '' }} found</span>
+      </div>
+    </div>
+    
+    <div class="projects-grid" *ngIf="paginatedProjects.length > 0">
+      <div class="project-card" *ngFor="let project of paginatedProjects; let i = index" 
            [style.animation-delay]="(i * 0.1) + 's'">
         <div class="card-image">
-          <div class="image-container">
+          <div class="image-container" (click)="viewImage(project.image)">
             <img [src]="project.image" [alt]="project.title">
-            <div class="image-overlay"></div>
+            <div class="image-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+            <div class="hover-preview">
+              <div class="preview-content">
+                <h4>{{ project.title }}</h4>
+                <div class="preview-tech">
+                  <span *ngFor="let tech of project.caseStudy.technologies.slice(0, 4)" class="tech-tag">
+                    {{ tech }}
+                  </span>
+                </div>
+                <p class="preview-result">{{ project.caseStudy.results.split(',')[0] }}</p>
+              </div>
+            </div>
           </div>
-          <div class="card-badge">Project {{i + 1}}</div>
+          <div class="card-badge">{{ project.category }}</div>
         </div>
         
         <div class="card-content">
@@ -39,9 +88,64 @@
                 <i class="fas fa-search"></i> Case Study
               </button>
             </div>
+            
+            <div class="share-section">
+              <span class="share-label">Share:</span>
+              <button (click)="shareProject(project, 'twitter')" class="share-btn twitter" title="Share on Twitter">
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button (click)="shareProject(project, 'linkedin')" class="share-btn linkedin" title="Share on LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </button>
+              <button (click)="shareProject(project, 'facebook')" class="share-btn facebook" title="Share on Facebook">
+                <i class="fab fa-facebook"></i>
+              </button>
+              <button (click)="shareProject(project, 'whatsapp')" class="share-btn whatsapp" title="Share on WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+              </button>
+              <button (click)="copyLink(project)" class="share-btn copy" title="Copy Link">
+                <i class="fas fa-link"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    
+    <div class="no-results" *ngIf="paginatedProjects.length === 0">
+      <i class="fas fa-search"></i>
+      <h3>No projects found</h3>
+      <p>Try adjusting your filters or search query</p>
+      <button class="reset-btn" (click)="resetFilters()">
+        <i class="fas fa-redo"></i> Reset Filters
+      </button>
+    </div>
+    
+    <div class="pagination" *ngIf="totalPages > 1">
+      <button 
+        class="page-btn" 
+        (click)="changePage(currentPage - 1)" 
+        [disabled]="currentPage === 1"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <button 
+        *ngFor="let page of [].constructor(totalPages); let i = index" 
+        class="page-btn" 
+        [class.active]="currentPage === i + 1"
+        (click)="changePage(i + 1)"
+      >
+        {{ i + 1 }}
+      </button>
+      
+      <button 
+        class="page-btn" 
+        (click)="changePage(currentPage + 1)" 
+        [disabled]="currentPage === totalPages"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
   </div>
 </section>
@@ -105,6 +209,36 @@
           </div>
         </div>
       </div>
+      
+      <div class="modal-share">
+        <span class="share-label">Share this project:</span>
+        <div class="share-buttons">
+          <button (click)="shareProject(selectedProject, 'twitter')" class="share-btn twitter">
+            <i class="fab fa-twitter"></i> Twitter
+          </button>
+          <button (click)="shareProject(selectedProject, 'linkedin')" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </button>
+          <button (click)="shareProject(selectedProject, 'facebook')" class="share-btn facebook">
+            <i class="fab fa-facebook"></i> Facebook
+          </button>
+          <button (click)="shareProject(selectedProject, 'whatsapp')" class="share-btn whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </button>
+          <button (click)="copyLink(selectedProject)" class="share-btn copy">
+            <i class="fas fa-link"></i> Copy Link
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="image-modal" *ngIf="selectedImage" (click)="closeImage()">
+  <div class="image-modal-content">
+    <button class="close-image" (click)="closeImage()">
+      <i class="fas fa-times"></i>
+    </button>
+    <img [src]="selectedImage" alt="Full size image">
   </div>
 </div>
