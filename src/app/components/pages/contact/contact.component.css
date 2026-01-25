@@ -99,17 +99,17 @@ button:hover {
 
 .contact-details,
 .business-hours {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: white;
     padding: 30px;
     border-radius: 16px;
     flex: 1;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f1f5f9;
 }
 
 .contact-details h3,
 .business-hours h3 {
-    color: white;
+    color: #333;
     font-size: 1.5rem;
     margin-bottom: 25px;
     text-align: center;
@@ -126,16 +126,16 @@ button:hover {
     display: flex;
     gap: 15px;
     align-items: flex-start;
-    background: rgba(255, 255, 255, 0.1);
+    background: #f8f9fa;
     padding: 15px;
     border-radius: 12px;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
 }
 
 .detail-item:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #e9ecef;
     transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .detail-item.full-width {
@@ -144,22 +144,21 @@ button:hover {
 
 .detail-item i {
     font-size: 28px;
-    color: white;
+    color: #007acc;
     margin-top: 5px;
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
 }
 
 .detail-item strong {
     display: block;
     font-weight: 700;
-    color: white;
+    color: #333;
     margin-bottom: 5px;
     font-size: 1.1rem;
 }
 
 .detail-item p {
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
+    color: #666;
     margin: 0;
 }
 
@@ -177,14 +176,14 @@ button:hover {
 .hour-item strong {
     display: block;
     font-weight: 700;
-    color: white;
+    color: #333;
     margin-bottom: 8px;
     font-size: 1.1rem;
 }
 
 .hour-item p {
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
+    color: #666;
     margin: 0;
 }
 
