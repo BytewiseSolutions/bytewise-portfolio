@@ -99,15 +99,26 @@ button:hover {
 
 .contact-details,
 .business-hours {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
     flex: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f1f5f9;
+}
+
+.contact-details h3,
+.business-hours h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
 }
 
 .details-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
@@ -115,6 +126,16 @@ button:hover {
     display: flex;
     gap: 15px;
     align-items: flex-start;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+    background: #e9ecef;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .detail-item.full-width {
@@ -122,21 +143,22 @@ button:hover {
 }
 
 .detail-item i {
-    font-size: 24px;
-    color: #4CAF50;
+    font-size: 28px;
+    color: #007acc;
     margin-top: 5px;
 }
 
 .detail-item strong {
     display: block;
-    font-weight: bold;
+    font-weight: 700;
     color: #333;
     margin-bottom: 5px;
+    font-size: 1.1rem;
 }
 
 .detail-item p {
     font-size: 16px;
-    color: #555;
+    color: #666;
     margin: 0;
 }
 
@@ -153,14 +175,15 @@ button:hover {
 
 .hour-item strong {
     display: block;
-    font-weight: bold;
+    font-weight: 700;
     color: #333;
     margin-bottom: 8px;
+    font-size: 1.1rem;
 }
 
 .hour-item p {
     font-size: 16px;
-    color: #555;
+    color: #666;
     margin: 0;
 }
 

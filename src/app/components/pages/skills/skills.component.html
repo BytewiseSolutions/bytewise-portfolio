@@ -1,18 +1,154 @@
 <div class="skills-wrapper">
-
-    <div class="category-filter">
-        <button *ngFor="let category of categories" (click)="selectedCategory = category"
-            [class.active]="selectedCategory === category">
-            {{ category }}
-        </button>
+    <div class="skills-header">
+        <h1 class="page-title">Technical <span class="highlight">Skills</span></h1>
+        <p class="page-subtitle">My expertise across various technologies and tools</p>
+        <div class="divider"></div>
     </div>
 
-    <div class="category" *ngFor="let group of filteredGroups">
-        <h2 class="category-title">{{ group.category }}</h2>
-        <div class="skills-container">
-            <div class="skill-card" *ngFor="let skill of group.skills">
-                <i class="{{ skill.iconClass }} icon"></i>
-                <div class="name">{{ skill.name }}</div>
+    <div class="search-filter-section">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Search skills..." />
+        </div>
+
+        <div class="category-filter">
+            <button *ngFor="let category of categories" (click)="selectedCategory = category"
+                [class.active]="selectedCategory === category">
+                <i class="fas fa-layer-group"></i> {{ category }}
+            </button>
+        </div>
+    </div>
+
+    <div class="skills-content">
+        <div class="category" *ngFor="let group of filteredGroups; let i = index" [style.animation-delay]="(i * 0.1) + 's'">
+            <h2 class="category-title">
+                <i class="fas fa-code"></i> {{ group.category }}
+                <span class="skill-count">{{ group.skills.length }} skills</span>
+            </h2>
+            <div class="skills-container">
+                <div class="skill-card" *ngFor="let skill of group.skills; let j = index" [style.animation-delay]="((i * 0.1) + (j * 0.05)) + 's'" (click)="viewSkillDetails(skill)">
+                    <div class="skill-header">
+                        <div class="skill-icon animated-icon" [style.color]="skill.color">
+                            <i class="{{ skill.iconClass }}"></i>
+                        </div>
+                        <div class="skill-badge" [style.background]="getLevelColor(skill.level)">
+                            {{ skill.level }}
+                        </div>
+                    </div>
+                    <h3 class="skill-name">{{ skill.name }}</h3>
+                    <p class="skill-description">{{ skill.description }}</p>
+                    
+                    <div class="skill-stats">
+                        <div class="stat-item trend" [style.color]="getTrendColor(skill.trend)">
+                            <i [class]="getTrendIcon(skill.trend)"></i>
+                            <span>{{ getTrendLabel(skill.trend) }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" [style.width.%]="getLevelPercentage(skill.level)" [style.background]="getLevelColor(skill.level)"></div>
+                        </div>
+                        <span class="progress-label">{{ getLevelPercentage(skill.level) }}%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" *ngIf="hasNoResults">
+            <i class="fas fa-search"></i>
+            <h3>No skills found</h3>
+            <p>Try adjusting your search or filter</p>
+        </div>
+    </div>
+
+    <div class="skill-stacks-section">
+        <h2 class="section-title">
+            <i class="fas fa-layer-group"></i> Tech Stacks
+        </h2>
+        <div class="stacks-grid">
+            <div class="stack-card" *ngFor="let stack of skillStacks; let i = index" [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="stack-icon" [style.color]="stack.color">
+                    <i [class]="stack.icon"></i>
+                </div>
+                <h3>{{ stack.name }}</h3>
+                <div class="stack-skills">
+                    <span *ngFor="let skill of stack.skills" class="stack-skill-tag">
+                        {{ skill }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="certifications-section" *ngIf="certifications.length > 0">
+        <h2 class="section-title">
+            <i class="fas fa-certificate"></i> Certifications & Awards
+        </h2>
+        <div class="certifications-grid">
+            <div class="cert-card" *ngFor="let cert of certifications; let i = index" [style.animation-delay]="(i * 0.1) + 's'">
+                <div class="cert-icon">
+                    <i class="{{ cert.icon }}"></i>
+                </div>
+                <div class="cert-content">
+                    <h3>{{ cert.name }}</h3>
+                    <p class="cert-issuer">{{ cert.issuer }}</p>
+                    <span class="cert-year">{{ cert.year }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="skill-modal" *ngIf="selectedSkill" (click)="closeSkillDetails()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="close-modal" (click)="closeSkillDetails()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="modal-header">
+            <div class="modal-icon animated-icon" [style.color]="selectedSkill.color">
+                <i [class]="selectedSkill.iconClass"></i>
+            </div>
+            <div>
+                <h2>{{ selectedSkill.name }}</h2>
+                <div class="modal-badge" [style.background]="getLevelColor(selectedSkill.level)">
+                    {{ selectedSkill.level }}
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-body">
+            <div class="detail-section">
+                <h3><i class="fas fa-info-circle"></i> Description</h3>
+                <p>{{ selectedSkill.description }}</p>
+            </div>
+            
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Proficiency</h4>
+                    <div class="detail-progress">
+                        <div class="detail-progress-bar" [style.width.%]="getLevelPercentage(selectedSkill.level)" [style.background]="getLevelColor(selectedSkill.level)"></div>
+                    </div>
+                    <span class="detail-value">{{ getLevelPercentage(selectedSkill.level) }}%</span>
+                </div>
+                
+                <div class="detail-card">
+                    <i [class]="getTrendIcon(selectedSkill.trend)" [style.color]="getTrendColor(selectedSkill.trend)"></i>
+                    <h4>Market Trend</h4>
+                    <span class="detail-value" [style.color]="getTrendColor(selectedSkill.trend)">{{ getTrendLabel(selectedSkill.trend) }}</span>
+                    <p class="detail-label">Industry demand</p>
+                </div>
+            </div>
+            
+            <div class="detail-section">
+                <h3><i class="fas fa-tags"></i> Related Tags</h3>
+                <div class="modal-tags">
+                    <span *ngFor="let tag of selectedSkill.tags" class="modal-tag">
+                        {{ tag }}
+                    </span>
+                </div>
             </div>
         </div>
     </div>

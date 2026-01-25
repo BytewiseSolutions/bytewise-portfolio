@@ -52,6 +52,6 @@ export class NavbarComponent {
 
   openWhatsApp() {
     const message = "Hi! I'd like to connect with you.";
-    window.open(`https://wa.me/26659181664?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/26663274567?text=${encodeURIComponent(message)}`, '_blank');
   }
 }
