@@ -52,12 +52,12 @@ export class AboutComponent {
     {
       degree: 'BSc (Hons) Computing - Software Engineering',
       institution: 'Botho University, Maseru Campus',
-      year: 'December 2024 | GPA: 3.23'
+      year: '2020 - 2024 | GPA: 3.23'
     },
     {
       degree: 'LGCSE & JC',
       institution: 'Tsoinyane High School, Leribe, Pitseng',
-      year: '2016 - 2018'
+      year: '2014 - 2018'
     }
   ];
 

@@ -35,7 +35,7 @@ export class ChatService {
   }
 
   openWhatsApp(message: string): void {
-    const whatsappUrl = `https://wa.me/26659181664?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/26663274567?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   }
 }
