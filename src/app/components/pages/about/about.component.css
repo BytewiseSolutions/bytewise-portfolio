@@ -708,8 +708,26 @@
         font-size: 2rem;
     }
 
+    .motto {
+        font-size: 1rem;
+        padding: 10px 16px;
+    }
+
     .social-proof-section {
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .proof-card {
+        padding: 20px;
+    }
+
+    .proof-card i {
+        font-size: 2rem;
+    }
+
+    .proof-card h3 {
+        font-size: 2rem;
     }
 
     .bio-section,
@@ -765,6 +783,15 @@
         font-size: 1.2rem;
     }
 
+    .milestone-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .milestone-icon i {
+        font-size: 1.2rem;
+    }
+
     .milestone-content {
         grid-column: 2;
     }
@@ -785,5 +812,48 @@
         width: 100%;
         padding: 14px 32px;
         justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile-info h2 {
+        font-size: 1.2rem;
+    }
+
+    .social-proof-section {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title,
+    .bio-section h3,
+    .timeline-section h3,
+    .personality-section h3,
+    .career-timeline-section h3,
+    .learning-section h3,
+    .fun-facts-section h3,
+    .values-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .milestone-year {
+        font-size: 1rem;
+    }
+
+    .milestone-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .milestone-icon i {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
     }
 }
