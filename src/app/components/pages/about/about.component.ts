@@ -36,10 +36,9 @@ export class AboutComponent {
   ];
 
   funFacts = [
-    { icon: 'fas fa-code', fact: 'Wrote my first program at age 16' },
+    { icon: 'fas fa-code', fact: 'Wrote my first program at age 23' },
     { icon: 'fas fa-coffee', fact: 'Powered by coffee and curiosity' },
-    { icon: 'fas fa-book', fact: 'Love reading tech blogs and documentation' },
-    { icon: 'fas fa-gamepad', fact: 'Enjoy gaming and problem-solving puzzles' }
+    { icon: 'fas fa-book', fact: 'Love reading tech blogs and documentation' }
   ];
 
   learningJourney = [
@@ -50,10 +49,10 @@ export class AboutComponent {
   ];
 
   socialProof = {
-    github: { username: 'BytewiseSolutions', repos: 20, followers: 15, url: 'https://github.com/BytewiseSolutions' },
-    linkedin: { connections: '100+', url: 'https://www.linkedin.com/in/lebohang-monamane' },
-    projects: 15,
-    experience: 3
+    github: { username: 'BytewiseSolutions', repos: 10, followers: 5, url: 'https://github.com/BytewiseSolutions' },
+    linkedin: { connections: '500+', url: 'https://www.linkedin.com/in/lebohang-monamane' },
+    projects: 5,
+    experience: 1
   };
 
   careerMilestones = [

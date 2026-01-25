@@ -39,10 +39,6 @@
                     <p class="skill-description">{{ skill.description }}</p>
                     
                     <div class="skill-stats">
-                        <div class="stat-item">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>{{ skill.projectCount }} projects</span>
-                        </div>
                         <div class="stat-item trend" [style.color]="getTrendColor(skill.trend)">
                             <i [class]="getTrendIcon(skill.trend)"></i>
                             <span>{{ getTrendLabel(skill.trend) }}</span>
@@ -136,13 +132,6 @@
                         <div class="detail-progress-bar" [style.width.%]="getLevelPercentage(selectedSkill.level)" [style.background]="getLevelColor(selectedSkill.level)"></div>
                     </div>
                     <span class="detail-value">{{ getLevelPercentage(selectedSkill.level) }}%</span>
-                </div>
-                
-                <div class="detail-card">
-                    <i class="fas fa-project-diagram"></i>
-                    <h4>Projects</h4>
-                    <span class="detail-value">{{ selectedSkill.projectCount }}</span>
-                    <p class="detail-label">Completed projects</p>
                 </div>
                 
                 <div class="detail-card">

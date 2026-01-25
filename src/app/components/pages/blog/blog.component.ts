@@ -13,13 +13,13 @@ export class BlogComponent implements OnInit {
   articles = [
     {
       id: 1,
-      title: 'Building Modern Web Applications with Angular',
-      excerpt: 'Learn how to create scalable and maintainable web applications using Angular framework.',
-      content: 'Angular is a powerful framework for building dynamic web applications...',
+      title: 'Building Modern Web Applications with React',
+      excerpt: 'Learn how to create scalable and maintainable web applications using React framework with Firebase backend.',
+      content: 'React is a powerful library for building dynamic web applications with Firebase providing real-time database capabilities...',
       author: 'Lebohang Monamane',
       date: new Date().toISOString().split('T')[0],
       image: '/agric.png',
-      tags: ['Angular', 'Web Development', 'TypeScript']
+      tags: ['React', 'Web Development', 'JavaScript', 'Firebase']
     }
   ];
 
