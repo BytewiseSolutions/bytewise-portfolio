@@ -1,28 +1,35 @@
 <div class="home-container">
     <div class="content">
-        <h1>Lebohang Monamane</h1>
-        <p class="intro">Welcome to my professional portfolio showcasing projects, skills, and passion for technology.
+        <span class="greeting">👋 Hello, I'm</span>
+        <h1 class="animated-title">Lebohang Monamane</h1>
+        <h2 class="typed-role">
+            <span class="role-text">{{ typedText }}</span>
+            <span class="cursor">|</span>
+        </h2>
+        <p class="intro">Transforming ideas into elegant digital solutions. Passionate about creating impactful web and mobile applications.
         </p>
 
-        <div class="roles">
-            <p><i class="fas fa-laptop-code"></i> Software Developer</p>
-            <p><i class="fas fa-code"></i> Full Stack Developer</p>
-            <p><i class="fas fa-mobile-alt"></i> Mobile Application Developer</p>
-            <p><i class="fas fa-brain"></i> Problem Solver <i class="fas fa-tools"></i> Tech Enthusiast</p>
-        </div>
-
         <div class="buttons">
-            <a class="button-primary" href="/lebo.pdf" download aria-label="Download Lebohang Monamane's resume"><i
-                    class="fas fa-file-alt"></i>Download Resume</a>
+            <a class="button-primary" href="/lebo.pdf" download aria-label="Download Lebohang Monamane's resume">
+                <i class="fas fa-download"></i>Download Resume
+            </a>
             <a class="button-secondary" href="https://github.com/BytewiseSolutions" target="_blank"
-                aria-label="Visit ByteWise Solutions GitHub profile"><i class="fab fa-github"></i>Visit GitHub</a>
+                aria-label="Visit ByteWise Solutions GitHub profile">
+                <i class="fab fa-github"></i>View GitHub
+            </a>
+            <a class="button-tertiary" routerLink="/contact">
+                <i class="fas fa-envelope"></i>Get In Touch
+            </a>
         </div>
     </div>
 
     <div class="profile-photo">
-        <div *ngIf="imageLoading.profile" class="image-loading">Loading...</div>
-        <img src="/lebohang.jpg" alt="Lebohang Monamane" (load)="onImageLoad('profile')" (error)="onImageError($event)"
-            [style.display]="imageLoading.profile ? 'none' : 'block'" />
+        <div class="photo-wrapper">
+            <div *ngIf="imageLoading.profile" class="image-loading">Loading...</div>
+            <img src="/lebohang.jpg" alt="Lebohang Monamane" (load)="onImageLoad('profile')" (error)="onImageError($event)"
+                [style.display]="imageLoading.profile ? 'none' : 'block'" />
+            <div class="photo-decoration"></div>
+        </div>
     </div>
 </div>
 
@@ -32,7 +39,7 @@
         <div class="project-card">
             <div *ngIf="imageLoading.agric" class="image-loading">Loading...</div>
             <img src="totalfree.png" alt="Final Project" (load)="onImageLoad('agric')" (error)="onImageError($event)"
-                [style.display]="imageLoading.agric ? 'none' : 'block'" />
+                [style.display]="imageLoading.agric ? 'none' : 'block'" (click)="openImage('totalfree.png')" />
             <h3>Total Free Lottery</h3>
             <p>TotalFreeLotto is a first-of-its-kind, web-based lottery platform where 
                 anyone can play completely free and still stand a chance to win real money</p>
@@ -42,7 +49,7 @@
         <div class="project-card">
             <div *ngIf="imageLoading.intern" class="image-loading">Loading...</div>
             <img src="intern.png" alt="Project 2" (load)="onImageLoad('intern')" (error)="onImageError($event)"
-                [style.display]="imageLoading.intern ? 'none' : 'block'" />
+                [style.display]="imageLoading.intern ? 'none' : 'block'" (click)="openImage('intern.png')" />
             <h3>Internship System</h3>
             <p>
                 Connecting Students, Companies, and Universities in Lesotho
@@ -54,7 +61,7 @@
         <div class="project-card">
             <div *ngIf="imageLoading.fansdor" class="image-loading">Loading...</div>
             <img src="fansdor.png" alt="Project 2" (load)="onImageLoad('fansdor')" (error)="onImageError($event)"
-                [style.display]="imageLoading.fansdor ? 'none' : 'block'" />
+                [style.display]="imageLoading.fansdor ? 'none' : 'block'" (click)="openImage('fansdor.png')" />
             <h3>Fans Dor</h3>
             <p>
                 A very minimal website with focus being on
@@ -116,3 +123,12 @@
 
     </div>
 </section>
+
+<div class="image-modal" *ngIf="selectedImage" (click)="closeImage()">
+  <div class="image-modal-content">
+    <button class="close-image" (click)="closeImage()">
+      <i class="fas fa-times"></i>
+    </button>
+    <img [src]="selectedImage" alt="Full size image">
+  </div>
+</div>
